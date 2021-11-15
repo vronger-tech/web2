@@ -1,22 +1,22 @@
-<h3>Kérem írjon hozzászólást</h2>
+<h2>Kérem írjon hozzászólást</h2>
 
-    <form action="<?= SITE_ROOT ?>hozzaszol" method="post">
+    <form action="<?= SITE_ROOT ?>hozzaszolas" method="post">
     <br>
         <fieldset>
-<br>
-            <legend>Hozzászólás</legend>
+
+            <h3>Hozzászólás</h3>
 
             <br>
 
-            <input type="textarea" name="szoveg" width: "350px" placeholder="Kérem írja be a hozzászólását" required><br><br>
+            <textarea name="tartalom" cols="40" rows="10" placeholder="Kérem írja be a hozzászólását" required></textarea><br><br>
 
             
 
-            <input type="submit" name="kuld" value="Hozzaszolas">
+            <input type="submit" name="kuld" value="Küldés">
 
             <br>&nbsp;
 
         </fieldset>
 
     </form>
-    <h2><br><?= (isset($viewData['uzenet']) ? $viewData['uzenet'] : "") ?><br></h2>
+  
