@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Nov 14. 18:52
+-- Létrehozás ideje: 2021. Nov 15. 18:04
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.4.25
 
@@ -29,10 +29,19 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `blog` (
   `id` int(10) NOT NULL,
-  `nev` varchar(50) CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
-  `szoveg` text CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
+  `felhasznaloId` int(10) NOT NULL,
+  `tartalom` text CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
   `ido` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- A tábla adatainak kiíratása `blog`
+--
+
+INSERT INTO `blog` (`id`, `felhasznaloId`, `tartalom`, `ido`) VALUES
+(1, 5, 'Első', '2021-11-15 17:09:35'),
+(2, 5, 'Második', '2021-11-15 17:22:59'),
+(3, 2, 'Második hozzászólás', '2021-11-15 17:37:53');
 
 -- --------------------------------------------------------
 
@@ -88,6 +97,7 @@ CREATE TABLE `menu` (
 INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
 ('admin', 'Admin', '', '001', 80),
 ('belepes', 'Belépés', '', '100', 60),
+('blog', 'Blog', '', '011', 50),
 ('hozzaszolas', 'Hozzászólás', '', '011', 40),
 ('kilepes', 'Kilépés', '', '011', 70),
 ('mnb', 'MNB SOAP', '', '111', 30),
@@ -125,7 +135,7 @@ ALTER TABLE `menu`
 -- AUTO_INCREMENT a táblához `blog`
 --
 ALTER TABLE `blog`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`

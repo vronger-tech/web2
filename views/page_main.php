@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Operett</title>
+        <title>Vízvezeték szerelés</title>
         <link rel="stylesheet" type="text/css" href="<?php echo SITE_ROOT?>css/bootstrap.css">
        <?php if($viewData['style']) echo '<link rel="stylesheet" type="text/css" href="'.$viewData['style'].'">'; ?>
     </head>
@@ -17,12 +17,12 @@
 		
 		<div class="row">
 		
-		    <h1 class="col-sm-4">Operett Gála
+		    <h1 class="col-sm-2">Csőtörés esetén
 			
 			
 			</h1>
 			
-		    <nav  class="col-sm-8">
+		    <nav  class="col-sm-10">
             <?php echo Menu::getMenu($viewData['selectedItems']); ?>
         </nav>
 			
@@ -51,7 +51,7 @@
 	    <div class="container main-image hidden-xs center-block">
 		<div class="row" >
 		    <div class="col-xs-12">
-			<img src="img/main2.jpg" class="img-responsive center-block">
+			<img src="img/cso.jpg" class="img-responsive center-block">
 		    </div>
 		    
 		</div>
@@ -89,7 +89,7 @@
 	    <div class="row">
 		<div class="container">
 		    <div class="row">
-			<h2>Operett Gála - Készítette: Teréki Zalán, Seres Tamás	</h2>
+			<h2>Vízvezeték szerelés - Készítette: Teréki Zalán, Seres Tamás	</h2>
 		    </div>
 		    </div>
 	    </div>
