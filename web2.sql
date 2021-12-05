@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Gép: 127.0.0.1
--- Létrehozás ideje: 2021. Nov 15. 18:04
+-- Létrehozás ideje: 2021. Dec 05. 12:14
 -- Kiszolgáló verziója: 10.4.21-MariaDB
 -- PHP verzió: 7.4.25
 
@@ -24,39 +24,17 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Tábla szerkezet ehhez a táblához `blog`
---
-
-CREATE TABLE `blog` (
-  `id` int(10) NOT NULL,
-  `felhasznaloId` int(10) NOT NULL,
-  `tartalom` text CHARACTER SET utf8 COLLATE utf8_hungarian_ci NOT NULL,
-  `ido` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- A tábla adatainak kiíratása `blog`
---
-
-INSERT INTO `blog` (`id`, `felhasznaloId`, `tartalom`, `ido`) VALUES
-(1, 5, 'Első', '2021-11-15 17:09:35'),
-(2, 5, 'Második', '2021-11-15 17:22:59'),
-(3, 2, 'Második hozzászólás', '2021-11-15 17:37:53');
-
--- --------------------------------------------------------
-
---
 -- Tábla szerkezet ehhez a táblához `felhasznalok`
 --
 
 CREATE TABLE `felhasznalok` (
   `id` int(10) UNSIGNED NOT NULL,
-  `csaladi_nev` varchar(45) NOT NULL DEFAULT '',
-  `utonev` varchar(45) NOT NULL DEFAULT '',
-  `bejelentkezes` varchar(12) NOT NULL DEFAULT '',
-  `jelszo` varchar(40) NOT NULL DEFAULT '',
-  `jogosultsag` varchar(3) NOT NULL DEFAULT '_1_'
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+  `csaladi_nev` varchar(45) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `utonev` varchar(45) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `bejelentkezes` varchar(12) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `jelszo` varchar(40) CHARACTER SET utf8 NOT NULL DEFAULT '',
+  `jogosultsag` varchar(3) CHARACTER SET utf8 NOT NULL DEFAULT '_1_'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `felhasznalok`
@@ -83,37 +61,32 @@ INSERT INTO `felhasznalok` (`id`, `csaladi_nev`, `utonev`, `bejelentkezes`, `jel
 --
 
 CREATE TABLE `menu` (
-  `url` varchar(30) NOT NULL,
-  `nev` varchar(30) NOT NULL,
-  `szulo` varchar(30) NOT NULL,
-  `jogosultsag` varchar(3) NOT NULL,
+  `url` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `nev` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `szulo` varchar(30) CHARACTER SET utf8 NOT NULL,
+  `jogosultsag` varchar(3) CHARACTER SET utf8 NOT NULL,
   `sorrend` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_hungarian_ci;
 
 --
 -- A tábla adatainak kiíratása `menu`
 --
 
 INSERT INTO `menu` (`url`, `nev`, `szulo`, `jogosultsag`, `sorrend`) VALUES
-('admin', 'Admin', '', '001', 80),
-('belepes', 'Belépés', '', '100', 60),
-('blog', 'Blog', '', '011', 50),
-('hozzaszolas', 'Hozzászólás', '', '011', 40),
-('kilepes', 'Kilépés', '', '011', 70),
-('mnb', 'MNB SOAP', '', '111', 30),
+('admin', 'Admin', '', '001', 100),
+('ajax', 'Ajax', '', '011', 60),
+('belepes', 'Belépés', '', '100', 80),
+('grafikon', 'Grafikon', '', '011', 50),
+('kilepes', 'Kilépés', '', '011', 90),
 ('nyitolap', 'Nyitólap', '', '111', 10),
-('regisztracio', 'Regisztráció', '', '100', 50),
-('soap', 'SoaP', '', '111', 20);
+('oopjs', 'OOP JS', '', '011', 30),
+('pdf', 'PDF készítés', '', '011', 40),
+('regisztracio', 'Regisztráció', '', '100', 70),
+('restful', 'Restful', '', '011', 20);
 
 --
 -- Indexek a kiírt táblákhoz
 --
-
---
--- A tábla indexei `blog`
---
-ALTER TABLE `blog`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- A tábla indexei `felhasznalok`
@@ -130,12 +103,6 @@ ALTER TABLE `menu`
 --
 -- A kiírt táblák AUTO_INCREMENT értéke
 --
-
---
--- AUTO_INCREMENT a táblához `blog`
---
-ALTER TABLE `blog`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT a táblához `felhasznalok`

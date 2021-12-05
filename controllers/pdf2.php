@@ -32,7 +32,7 @@ $pdf->SetSubject('Pdf to PCDF');
 $pdf->SetKeywords('TCPDF, PDF, ');
 
 // set default header data
-$pdf->SetHeaderData("", 25, "Szerelők listája", "Web-programozás II\n3. Beadandó feladat\n".date('Y.m.d',time()));
+$pdf->SetHeaderData("", 25, "Szerelok listája", "Web-programozás II\n2. Beadandó feladat\n".date('Y.m.d',time()));
 
 // set header and footer fonts
 $pdf->setHeaderFont(Array(PDF_FONT_NAME_MAIN, '', PDF_FONT_SIZE_MAIN));
@@ -124,7 +124,7 @@ $pdf->writeHTML($html, true, false, true, false, '');
 // ---------------------------------------------------------
 
 //Close and output PDF document
-$pdf->Output('labor3-1.pdf', 'D');
+$pdf->Output('szerlők_listája.pdf', 'D');
 
 
 
